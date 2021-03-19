@@ -38,10 +38,11 @@
       <div class="dropdown">
         <button class="dropbtn">Admin</button>
         <div class="dropdown-cont">
-          <a href="index.php">Home</a>
-          <a href="voteLogin.php">Vote Here</a>
-          <a href="archive.php">View Past Elections</a>
-          <a href="login.php">Admin Login</a>
+          <a href="index.php">Home</a><br>
+          <a href="voteLogin.php">Vote Here</a><br>
+          <a href="archive.php">View Past Elections</a><br>
+          <a href="login.php">Admin Login</a><br>
+          <?php if ($_SESSION["voter"] == 1) {echo "<a href=\"logout.php\">Logout</a>";}?>
         </div>
       </div>
     </nav>
@@ -49,6 +50,7 @@
       <title>Voting Site - Admin Page</title>
       <h2>Admin Page</h2>
       <?php
+      print_r($_SESSION);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           date_default_timezone_set("Europe/London");
           $servername = "localhost";
@@ -139,7 +141,6 @@
               if (mysqli_num_rows($checking) == 1) {
                 $checking1 = mysqli_fetch_assoc($checking);
                 $remQuer = "DELETE FROM `users` WHERE `userID` == ".$checking1['userID'];
-                echo $remQuer;
                 $redRum = mysqli_query($conn, $remQuer);
                 echo "User Removed";
               }

@@ -41,10 +41,11 @@
       <div class="dropdown">
         <button class="dropbtn">Vote Here!</button>
         <div class="dropdown-cont">
-          <a href="index.php">Home</a>
-          <a href="voteLogin.php">Vote Here</a>
-          <a href="archive.php">View Past Elections</a>
-          <a href="login.php">Admin Login</a>
+          <a href="index.php">Home</a><br>
+          <a href="voteLogin.php">Vote Here</a><br>
+          <a href="archive.php">View Past Elections</a><br>
+          <a href="login.php">Admin Login</a><br>
+          <?php if ($_SESSION["voter"] == 1) {echo "<a href=\"logout.php\">Logout</a>";}?>
         </div>
       </div>
     </nav>
