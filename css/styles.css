@@ -1,0 +1,53 @@
+* {margin: 0; padding: 0}
+body {
+  font-family: arial;
+  margin: auto;
+  height: 800px;
+}
+header {
+  background-color: #6b6f76;
+  font-size: 150%;
+  display: inline;
+}
+.regularBar {
+  background-color: #6b6f76;
+  clear: both;
+  height: 35px;
+  margin-top: 5px;
+}
+#adminBoxes {
+  border-radius: 25px;
+  border: 2px solid;
+  padding: 20px;
+  width: 400px;
+}
+#archiveBoxes {
+  width: 100%;
+  border: 2px solid;
+  padding: 5px;
+}
+#optBoxes {display: none;}
+.regularBar ul {list-style-type: none;}
+.regularBar ul li {
+  width: 160px;
+  border-color:#000000;
+  float: left;
+  text-align: left;}
+.regularBar ul li a {text-decoration: none;}
+.regularBar ul li a:hover {color: #ffffff;}
+
+.dropdown, .dropbtn, .dropdown-cont {
+  display: none;
+  width: 100%;
+  background-color: #6b6f76;
+}
+.dropdown-cont {
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-cont {display: block;}
+
+@media only screen and (max-width: 1000px) {
+  .regularBar {display: none;}
+  .dropdown, .dropbtn{display: block;}
+}
