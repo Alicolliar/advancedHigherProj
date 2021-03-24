@@ -51,7 +51,6 @@
       <title>Voting Site - Admin Page</title>
       <h2>Admin Page</h2>
       <?php
-      print_r($_SESSION);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           date_default_timezone_set("Europe/London");
           $servername = "localhost";
@@ -209,7 +208,8 @@
       </div>
     </main>
     <footer>
-      <h4>An Alicolliar Production</h4>
+      <h4>An Alicolliar Production</h4><br><br>
+      <p style="color: grey"><i>Version 1.0.0</i></p>
     </footer>
   </body>
 </html>

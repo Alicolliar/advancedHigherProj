@@ -27,6 +27,7 @@
           <li><a href="voteLogin.php">Vote Here</a></li>
           <li><a href="archive.php">View Past Elections</a></li>
           <li><a href="login.php">Admin Login</a></li>
+          <?php if ($_SESSION["voter"] == 1) {echo "<li><a href=\"logout.php\">Logout</a></li>";}?>
         </ul>
       </div>
       <div class="dropdown">
@@ -36,6 +37,7 @@
           <a href="voteLogin.php">Vote Here</a>
           <a href="archive.php">View Past Elections</a>
           <a href="login.php">Admin Login</a>
+          <?php if ($_SESSION["voter"] == 1) {echo "<a href=\"logout.php\">Logout</a>";}?>
         </div>
       </div>
     </nav>
@@ -93,7 +95,8 @@
       ?>
     </main>
     <footer>
-      <h4>An Alicolliar Production</h4>
+      <h4>An Alicolliar Production</h4><br><br>
+      <p style="color: grey"><i>Version 1.0.0</i></p>
     </footer>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if ((isset($_SESSION["voter"]) == False) ){
+  if ((isset($_SESSION["voter"]) == False)){
     header('Location: voteLogin.php');
   }
   //Initialising SQL Connection
@@ -16,7 +16,7 @@
     $row = mysqli_fetch_assoc($curRaw);
     $quest = $row["question"];
     $electID = $row["electID"];
-    $opt1s = $row["opt1"];
+    $yeses = $row["opt1"];
     $noes = $row["opt2"];
   }
  ?>
@@ -36,6 +36,7 @@
           <li><a href="voteLogin.php">Vote Here</a></li>
           <li><a href="archive.php">View Past Elections</a></li>
           <li><a href="admin.php">Admin Login</a></li>
+          <?php if ($_SESSION["voter"] == 1) {echo "<li><a href=\"logout.php\">Logout</a></li>";}?>
         </ul>
       </div>
       <div class="dropdown">
@@ -76,13 +77,13 @@
             echo "<p>Not a Valid Vote</p>";
           }
           session_destroy();
-          mysqli_close();
           header('Location: index.php');
         }
        ?>
     </main>
     <footer>
-      <h4>An Alicolliar Production</h4>
+      <h4>An Alicolliar Production</h4><br><br>
+      <p style="color: grey"><i>Version 1.0.0</i></p>
     </footer>
   </body>
 </html>

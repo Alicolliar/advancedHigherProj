@@ -1,8 +1,7 @@
-CREATE DATABASE testdb;
+CREATE DATABASE testdb; ---Create Database
+USE testdb;
 
-
-
-CREATE TABLE elects (
+CREATE TABLE elects ( ---Create the "elects" table
   electID tinyint auto_increment primary key,
   question VARCHAR(25),
   type VARCHAR(11),
@@ -19,10 +18,12 @@ CREATE TABLE elects (
   running tinyint
 );
 
-CREATE TABLE users (
+CREATE TABLE users ( ---Create the "elects" table
   userID tinyint auto_increment primary key,
   userName VARCHAR(25),
   pwd VARCHAR(25),
   userLevel tinyint,
   voted tinyint
 )
+
+INSERT INTO users (userName, pwd, userLevel, voted) VALUES ("defaultUser", "P4ssw0rd", 1, 0); ---Inserts a default user, "defaultUser", so that the user doesn't have to add their own user by hand
