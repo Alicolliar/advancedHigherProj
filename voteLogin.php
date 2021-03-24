@@ -32,18 +32,17 @@
       <div class="dropdown">
         <button class="dropbtn">Vote Here!</button>
         <div class="dropdown-cont">
-          <a href="index.php">Home</a><br>
-          <a href="voteLogin.php">Vote Here</a><br>
-          <a href="archive.php">View Past Elections</a><br>
-          <a href="login.php">Admin Login</a><br>
-          <?php if ($_SESSION["voter"] == 1) {echo "<a href=\"logout.php\">Logout</a>";}?>
+          <a href="index.php">Home</a>
+          <a href="voteLogin.php">Vote Here</a>
+          <a href="archive.php">View Past Elections</a>
+          <a href="login.php">Admin Login</a>
         </div>
       </div>
     </nav>
     <main>
       <h2>Login Here to Vote</h2>
       <?php
-      if (mysqli_num_rows($curElectData) > 0 OR $curElectData != False) {
+      if (mysqli_num_rows($curElectData) > 0) {
         $row = mysqli_fetch_assoc($curElectData);
         if ($row["type"] == "yesno"){
           header('Location: yesNovoting.php');
@@ -82,16 +81,14 @@
                 } if (mysqli_num_rows($curElectData) > 0) {
                   $row = mysqli_fetch_assoc($curElectData);
                   if ($row["type"] == "yesno") {
-                    mysqli_close();
                     header('Location: yesNovoting.php');
                 } elseif ($row["type"] == "multi") {
-                  mysqli_close();
                   header('Location: multiChoiceVoting.php');
-                } {echo "<h4>Please contact an administrator, as these elections can't yet be run</h3>";mysqli_close();}
-              } else {echo "<h3><b>No Election Running Currently</b></h3>";mysqli_close();}
-            } else {echo "<h3>Incorrect Password</h3>";mysqli_close();}
-          } else {echo "<h3>You have already voted</h3>";mysqli_close();}
-        } else {echo "<h3>Incorrect Username</h3>";mysqli_close();}
+                } {echo "<h4>Please contact an administrator, as these elections can't yet be run</h3>";}
+              }
+            } else {echo "<h3>Incorrect Password</h3>";}
+          } else {echo "<h3>You have already voted</h3>";}
+        } else {echo "<h3>Incorrect Username</h3>";}
       }
       ?>
     </main>

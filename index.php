@@ -15,6 +15,7 @@
           <li><a href="voteLogin.php">Vote Here</a></li>
           <li><a href="archive.php">View Past Elections</a></li>
           <li><a href="login.php">Admin Login</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>
       <div class="dropdown">
